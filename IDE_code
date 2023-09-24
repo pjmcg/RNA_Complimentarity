@@ -1,0 +1,60 @@
+
+rna_sequence= input("Input RNA Sequence Here:")
+output_string =("")
+
+# map the different RNA building blocks (AUCG)
+
+# purines
+adenine= ("A", "a")
+guanine= ("G", "g")
+
+# pyrimidines
+cytosine= ("C", "c")
+uracil= ("U", "u")
+
+
+for nucleotide in rna_sequence:
+    if nucleotide in adenine:
+        output_string+= "T"
+    elif nucleotide in uracil:
+        output_string+= "U"
+    elif nucleotide in cytosine:
+        output_string += "G"
+    elif nucleotide in guanine:
+        output_string += "C"
+    else:
+        raise ValueError("Incorrect DNA sequence was entered!")
+
+print("The Complimentary RNA sequence for " + rna_sequence + " is: ")
+print((output_string))
+
+#CODE TO CALCULATE THE GC CONTENT%
+
+GC_num= 0
+
+for nucleotide in output_string:
+    if nucleotide in cytosine:
+        GC_num+= 1
+    elif nucleotide in guanine:
+        GC_num+= 1
+    elif nucleotide in uracil:
+        GC_num+= 0
+    elif nucleotide in adenine:
+        GC_num+= 0
+
+
+print("")
+print("")
+
+GC_content= ((GC_num)/len(output_string))*100
+
+print("GC content = " + str(GC_content) + "%")
+
+
+
+# line breaks
+print("")
+print("")
+
+
+esc= input("Press ENTER when complete ")
